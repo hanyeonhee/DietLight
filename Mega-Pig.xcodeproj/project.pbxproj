@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3AAFADE827FFCE1B004741C0 /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAFADE727FFCE1B004741C0 /* CalenderView.swift */; };
 		3AAFADEC27FFF17F004741C0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAFADEB27FFF17F004741C0 /* MainTabView.swift */; };
+		3AAFADF028002107004741C0 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAFADEF28002107004741C0 /* DailyView.swift */; };
+		3AAFADF228002A5D004741C0 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAFADF128002A5D004741C0 /* TestView.swift */; };
 		F5600EB527FECAF60088B771 /* Mega_PigApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5600EB427FECAF60088B771 /* Mega_PigApp.swift */; };
 		F5600EB727FECAF60088B771 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5600EB627FECAF60088B771 /* ContentView.swift */; };
 		F5600EB927FECAF60088B771 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5600EB827FECAF60088B771 /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 /* Begin PBXFileReference section */
 		3AAFADE727FFCE1B004741C0 /* CalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderView.swift; sourceTree = "<group>"; };
 		3AAFADEB27FFF17F004741C0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		3AAFADEF28002107004741C0 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
+		3AAFADF128002A5D004741C0 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		F5600EB127FECAF60088B771 /* Mega-Pig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mega-Pig.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5600EB427FECAF60088B771 /* Mega_PigApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mega_PigApp.swift; sourceTree = "<group>"; };
 		F5600EB627FECAF60088B771 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -39,6 +43,8 @@
 		F5600EA827FECAF60088B771 = {
 			isa = PBXGroup;
 			children = (
+				3AAFADF128002A5D004741C0 /* TestView.swift */,
+				3AAFADEF28002107004741C0 /* DailyView.swift */,
 				F5600EB327FECAF60088B771 /* Mega-Pig */,
 				F5600EB227FECAF60088B771 /* Products */,
 			);
@@ -143,9 +149,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AAFADF228002A5D004741C0 /* TestView.swift in Sources */,
 				F5600EB727FECAF60088B771 /* ContentView.swift in Sources */,
 				F5600EB527FECAF60088B771 /* Mega_PigApp.swift in Sources */,
 				3AAFADE827FFCE1B004741C0 /* CalenderView.swift in Sources */,
+				3AAFADF028002107004741C0 /* DailyView.swift in Sources */,
 				3AAFADEC27FFF17F004741C0 /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,7 +283,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mega-Pig/Preview Content\"";
-				DEVELOPMENT_TEAM = P2UJWPTGRX;
+				DEVELOPMENT_TEAM = UAM52RQFW9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -304,7 +312,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mega-Pig/Preview Content\"";
-				DEVELOPMENT_TEAM = P2UJWPTGRX;
+				DEVELOPMENT_TEAM = UAM52RQFW9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
