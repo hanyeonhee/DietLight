@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct DailyView: View {
+    @State var ymd:String = "2XXX.01.04"
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView{
+                    Text("Daily View")
+        }
+        .navigationTitle(ymd)
+        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

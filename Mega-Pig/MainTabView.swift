@@ -12,7 +12,7 @@ struct MainTabView: View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
                 TabView {
-                    CalenderView().frame(width: geometry.size.width, height: geometry.size.height * 0.9, alignment: .center)
+                    CalendarView().frame(width: geometry.size.width, height: geometry.size.height * 0.9, alignment: .center)
                     .tabItem {
                         Image(systemName: "calendar")
                         Text("Calendar")
