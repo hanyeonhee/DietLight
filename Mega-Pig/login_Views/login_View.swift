@@ -40,9 +40,9 @@ struct login_View: View {
             })
             HStack{NavigationLink(destination: signup_email_View()
                 ) {
-                Text("회원가입   |")}
+                Text("회원가입   | ")}
                 NavigationLink(destination: find_Pw_View()) {
-                    Text("비밀번호 찾기")}
+                    Text("비밀번호 재설정 이메일 보내기")}
             }
             
                 }

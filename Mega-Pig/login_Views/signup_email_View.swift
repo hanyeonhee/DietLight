@@ -92,44 +92,47 @@ struct signup_email_View: View {
                     
             }
            
-            
-            Button(action: {
-                            // Your auth logic
-                            if(isValidEmail(id: email)) {
-                                warn="비밀번호가 일치하는지 확인해주세요."
-                                self.showError=true
-                                if(pwAlert==true){
-                                    if nickname==""{
-                                        warn="모든칸을 기입해 주세요."
-                                    }
-                                    else{
-                                        warn=""
-                                        signInSuccess=true
-                                        
+            if !signInSuccess{
+                Button(action: {
+                                // Your auth logic
+                                if(isValidEmail(id: email)) {
+                                    warn="비밀번호가 일치하는지 확인해주세요."
+                                    self.showError=true
+                                    if(pwAlert==true){
+                                        if nickname==""{
+                                            warn="모든칸을 기입해 주세요."
+                                        }
+                                        else{
+                                            warn=""
+                                            signInSuccess=true
+                                            
+                                        }
                                     }
                                 }
+                                else {
+                                    warn="유효한 이메일을 기입하여 주세요."
+                                    self.showError = true
+                                }
+                                
+                            })
+                {HStack{
+                    Spacer()
+                    Text("완료")
+            
+            .foregroundColor(Color.white)
+                    Spacer()
+                }.padding()
+                .background(Color.accentColor)
                             }
-                            else {
-                                warn="유효한 이메일을 기입하여 주세요."
-                                self.showError = true
-                            }
-                            
-                        })
-            {HStack{
-                Spacer()
-                Text("완료")
-        
-        .foregroundColor(Color.white)
-                Spacer()
-            }.padding()
-            .background(Color.accentColor)
-                        }
+            }
+            
            
             if showError {
                 
             Text(warn).foregroundColor(Color.red)
                         }
             if signInSuccess{
+                
                 NavigationLink(destination: login_View().navigationBarHidden(true), label: {
                                 HStack {
                                   Spacer()
