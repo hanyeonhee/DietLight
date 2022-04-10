@@ -7,22 +7,43 @@
 
 import SwiftUI
 
+extension Date {
+    func getYMDString(d: Date) -> String {
+            let dateFormatter = DateFormatter()
+             dateFormatter.dateFormat = "YYYY.MM.dd"
+            let strDate = dateFormatter.string(from: d)
+            return strDate
+    }
+    
+    func dayOfMonth(d: Date) -> Int {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd"
+        print("Current Date Is \(Int(dateFormatter.string(from: d))!)")
+        return Int(dateFormatter.string(from: d))!
+    }
+    
+    func dayNameOfWeek(d: Date) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: d)
+    }
+    
+    func dateChange(d: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        print("IN METHOD::: \(dateFormatter.date(from: d)!)")
+        return dateFormatter.date(from: d)!
+    }
+}
+
 struct CalendarView: View {
-    @State private var date = Date()
+    @State public var date = Date()
     @State var navigationActive = false
+    @State var isViewDisplayed = false
     
     let titleSize: CGFloat = 28
     let sTitleSize: CGFloat = 20
     let word: CGFloat = 22
-    
-    func getYMDString() -> String {
-            let date = date
-            let dateFormatter = DateFormatter()
-             dateFormatter.dateFormat = "YYYY.MM.dd"
-            let strDate = dateFormatter.string(from: date)
-            return strDate
-        }
-    
     
     let components: [String] = ["목표 칼로리", "일일 평균 섭취량", "목표 달성 일수", "이번 달의 원픽"]
     let unit: [String] = ["kcal", "개"]
@@ -48,13 +69,24 @@ struct CalendarView: View {
                         )
                         .datePickerStyle(.graphical)
                         .frame(width: width, height: topHeight, alignment: .center)
+                        .onDisappear()
+                        {
+                            if(isViewDisplayed == false)
+                            {
+                                isViewDisplayed = true
+                            }
+                            else
+                            {
+                                date = Date()
+                            }
+                        }
                         .onChange(of: date, perform: {newDate in
                             print("selected date: \(newDate)")
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.05)
                             {navigationActive = true}
                         })
-                        NavigationLink("", destination: DailyView(ymd: getYMDString()), isActive: $navigationActive)
-    //                    .navigationBarHidden(true)
+                        
+                        NavigationLink("", destination: DailyView(ymd: Date().getYMDString(d: date), dayOfWeek: Date().dayNameOfWeek(d: date)!, dayNum: Date().dayOfMonth(d: date)), isActive: $navigationActive)
                     }
                     .navigationBarHidden(true)
                     VStack(spacing: 0){
@@ -81,8 +113,9 @@ struct CalendarView: View {
                     }.background(Color.accentColor)
                         .frame(width: width, height: bottomHeight, alignment: .top)
                     }
-                }
+            }
         }
+        
     }
 
 }
