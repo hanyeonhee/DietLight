@@ -86,7 +86,18 @@ struct CalendarView: View {
                             {navigationActive = true}
                         })
                         
-                        NavigationLink("", destination: DailyView(ymd: Date().getYMDString(d: date), dayOfWeek: Date().dayNameOfWeek(d: date)!, dayNum: Date().dayOfMonth(d: date)), isActive: $navigationActive)
+                        NavigationLink("", destination:
+                                        DailyView(
+                                            ymd: Date().getYMDString(d: date),
+                                            dayOfWeek: Date().dayNameOfWeek(d: date)!,
+                                            dayNum: Date().dayOfMonth(d: date),
+                                            eatAmount: 100,
+                                            resAmount: 50,
+                                            values: [1300, 500, 300],
+                                            colors: DailyView.nutColor
+                                            
+                                        ),
+                                       isActive: $navigationActive)
                     }
                     .navigationBarHidden(true)
                     VStack(spacing: 0){

@@ -21,15 +21,40 @@ extension String {
 }
 
 struct DailyView: View {
+    
     @State var ymd:String = "2XXX.01.04"
     @State var dayOfWeek:String = "월요일"
     @State var dayNum:Int = 0
     @State var count: Int = 0
     
+    @State var eatAmount:CGFloat = 0
+    @State var resAmount:CGFloat = 0
+    
     @State public var buttonSelected: Int?
     
     @State var buttons = [1, 2, 3, 4, 5, 6, 7]
     let day = ["일", "월", "화", "수", "목", "금", "토"]
+    let nutrient = ["탄수화물", "단백질", "지방"]
+    static let nutColor = [
+        Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255, opacity: 1.0),
+        Color(red: 10 / 255, green: 132 / 255, blue: 255 / 255, opacity: 1.0),
+        Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255, opacity: 1.0)]
+    
+    public let values: [Double]
+    public var colors: [Color]
+    
+    var slices: [PieSliceData] {
+        let sum = values.reduce(0, +)
+        var endDeg: Double = 0
+        var tempSlices: [PieSliceData] = []
+        
+        for (i, value) in values.enumerated() {
+            let degrees: Double = value * 360 / sum
+            tempSlices.append(PieSliceData(startAngle: Angle(degrees: endDeg), endAngle: Angle(degrees: endDeg + degrees), text: String(format: "%.0f%%", value * 100 / sum), color: self.colors[i]))
+            endDeg += degrees
+        }
+        return tempSlices
+    }
     
     func selectedDateIs()  -> Int{
         for date in day
@@ -61,6 +86,49 @@ struct DailyView: View {
         let tempDay = dayNum - count + buttonSelected! < 10 ? "0" + String(dayNum - count + buttonSelected!) : String(dayNum - count + buttonSelected!)
         ymd = ymd.substring(from: 0, to: 7) + String(tempDay)
         print(ymd)
+    }
+    
+    func barChartColorChange() -> Color {
+        if (resAmount < eatAmount)
+        {
+            return Color.red
+        }
+        else if (resAmount * 0.8 < eatAmount)
+        {
+            return Color.yellow
+        }
+        else
+        {
+            return Color.accentColor
+        }
+    }
+    
+    func barChartFullFill(w: CGFloat) -> CGFloat {
+        if (resAmount < eatAmount)
+        {
+            return w * 0.8
+        }
+        else
+        {
+            return (w * 0.8) * CGFloat((Float)(eatAmount/resAmount))
+        }
+    }
+    
+    func barChartBackgroundColor() -> Color {
+        var color: Color = Color.white
+        if (resAmount < eatAmount)
+        {
+            color = Color.red.opacity(0.3)
+        }
+        else if (resAmount * 0.8 < eatAmount)
+        {
+            color = Color.yellow.opacity(0.3)
+        }
+        else
+        {
+            color = Color.accentColor.opacity(0.3)
+        }
+        return color
     }
     
     var body: some View {
@@ -109,9 +177,46 @@ struct DailyView: View {
                         }
                     }.frame(width: width, height: topHeight, alignment: .center)
                     VStack(spacing: 0){
-                        VStack (){
-                            Text("Pie Chart Area")
-                            Text("Bar Chart Area")
+                        VStack(spacing: graphWidth * 0.03){
+                            HStack(spacing: graphWidth * 0.1)
+                            {
+                                ZStack(){
+                                    ForEach(0..<self.values.count){ i in
+                                        PieSliceView(pieSliceData: self.slices[i])
+                                    }
+                                    .frame(width: graphWidth * 0.4, height: graphWidth * 0.4)
+                                }
+                                .foregroundColor(Color.white)
+                                VStack(spacing: height * 0.005) {
+                                    ForEach(0..<self.nutrient.count) {i in
+                                        HStack() {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .fill(DailyView.nutColor[i])
+                                                .frame(width: graphWidth * 0.07, height: graphWidth * 0.07, alignment: .leading)
+                                            Text(nutrient[i]).font(.callout)
+                                                .frame(alignment: .trailing)
+                                        }.frame(width: graphWidth * 0.3, alignment: .leading)
+                                    }
+                                }
+                            }
+                            VStack(spacing: bottomTHeight * 0.02){
+                                RoundedRectangle(cornerRadius: 10).fill(barChartBackgroundColor())
+                                    .frame(width: graphWidth * 0.8, height: bottomTHeight * 0.12)
+                                    .overlay()
+                                {
+                                    VStack(alignment: .leading)
+                                    {
+                                        RoundedRectangle(cornerRadius: 10).fill(barChartColorChange())
+                                            .frame(width: barChartFullFill(w: graphWidth), height: bottomTHeight * 0.12)
+                                    }.frame(width: graphWidth * 0.8, height: bottomTHeight * 0.12, alignment: .leading)
+                                }
+                                HStack(spacing: width * 0.01) {
+                                    Text("\((Int)(eatAmount))")
+                                    Text(" / ")
+                                    Text("\((Int)(resAmount))")
+                                    Text(" kcal")
+                                }
+                            }
                         }.frame(width: graphWidth, height: bottomTHeight, alignment: .center)
                             .background(Color.gray)
                         VStack(spacing: 0){
@@ -135,6 +240,6 @@ struct DailyView: View {
 
 struct DailyView_Previews: PreviewProvider {
     static var previews: some View {
-        DailyView()
+        DailyView(values: [1300, 500, 300], colors: DailyView.nutColor)
     }
 }
