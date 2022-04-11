@@ -45,7 +45,6 @@
 		F5600EA827FECAF60088B771 = {
 			isa = PBXGroup;
 			children = (
-				3AFB62322803DB510051BEA7 /* PieSliceView.swift */,
 				F5600EB327FECAF60088B771 /* Mega-Pig */,
 				F5600EB227FECAF60088B771 /* Products */,
 			);
@@ -62,6 +61,7 @@
 		F5600EB327FECAF60088B771 /* Mega-Pig */ = {
 			isa = PBXGroup;
 			children = (
+				3AFB62322803DB510051BEA7 /* PieSliceView.swift */,
 				3AAFADF128002A5D004741C0 /* TestView.swift */,
 				3AAFADEF28002107004741C0 /* DailyView.swift */,
 				3AAFADEB27FFF17F004741C0 /* MainTabView.swift */,

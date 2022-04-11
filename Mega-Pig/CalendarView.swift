@@ -85,7 +85,10 @@ struct CalendarView: View {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.05)
                             {navigationActive = true}
                         })
-                        
+                        .onTapGesture(count: 2)
+                        {
+                            navigationActive = true
+                        }
                         NavigationLink("", destination:
                                         DailyView(
                                             ymd: Date().getYMDString(d: date),
@@ -93,6 +96,7 @@ struct CalendarView: View {
                                             dayNum: Date().dayOfMonth(d: date),
                                             eatAmount: 100,
                                             resAmount: 50,
+                                            photoNum: 0,
                                             values: [1300, 500, 300],
                                             colors: DailyView.nutColor
                                             

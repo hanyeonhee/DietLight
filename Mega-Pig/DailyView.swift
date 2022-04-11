@@ -29,10 +29,19 @@ struct DailyView: View {
     
     @State var eatAmount:CGFloat = 0
     @State var resAmount:CGFloat = 0
-    
+
     @State public var buttonSelected: Int?
     
+    @State var photoNum: Int = 4
+    
     @State var buttons = [1, 2, 3, 4, 5, 6, 7]
+    @State public var values: [Int]
+    
+    // Struct Need List
+    @State var eatAmountArr = [10, 20, 30, 40, 50, 60, 70]
+    @State var nutrientArr = [[100,200,50], [300,550,440], [101, 202, 333], [121, 573, 394], [121, 573, 34], [121, 113, 255], [123, 456, 789]]
+    @State var photoNumArr = [0, 3, 5, 9, 25, 14, 2]
+    
     let day = ["일", "월", "화", "수", "목", "금", "토"]
     let nutrient = ["탄수화물", "단백질", "지방"]
     static let nutColor = [
@@ -40,7 +49,6 @@ struct DailyView: View {
         Color(red: 10 / 255, green: 132 / 255, blue: 255 / 255, opacity: 1.0),
         Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255, opacity: 1.0)]
     
-    public let values: [Double]
     public var colors: [Color]
     
     var slices: [PieSliceData] {
@@ -49,8 +57,8 @@ struct DailyView: View {
         var tempSlices: [PieSliceData] = []
         
         for (i, value) in values.enumerated() {
-            let degrees: Double = value * 360 / sum
-            tempSlices.append(PieSliceData(startAngle: Angle(degrees: endDeg), endAngle: Angle(degrees: endDeg + degrees), text: String(format: "%.0f%%", value * 100 / sum), color: self.colors[i]))
+            let degrees: Double = Double(value) * 360 / Double(sum)
+            tempSlices.append(PieSliceData(startAngle: Angle(degrees: endDeg), endAngle: Angle(degrees: endDeg + degrees), text: String(format: "%.0f%%", Double(value * 100 / sum)), color: self.colors[i]))
             endDeg += degrees
         }
         return tempSlices
@@ -131,14 +139,25 @@ struct DailyView: View {
         return color
     }
     
+    func matrixSquareNum() -> Int {
+        for i in 2...5
+        {
+            if (photoNum <= i * i)
+            {
+                return i
+            }
+        }
+        return 1
+    }
+    
     var body: some View {
         GeometryReader { geometry in
             let width = geometry.size.width
             let height = geometry.size.height
             let topHeight = height * 0.13
             let bottomHeight = height * 0.87
-            let bottomTHeight = bottomHeight * 0.4
-            let bottomBHeight = bottomHeight * 0.6
+            let bottomTHeight = bottomHeight * 0.42
+            let bottomBHeight = bottomHeight * 0.58
             let graphWidth = width * 0.9
                 VStack(spacing: 0){
                     NavigationView(){
@@ -161,10 +180,12 @@ struct DailyView: View {
                             ForEach(0..<7){
                                 button in Button(action: {
                                     self.buttonSelected = button
-                                    print("selected button changed!")
                                     ymdChange()
                                     CalendarView().date = Date().dateChange(d: ymd)
-                                    print("CalendarViews ::: \(CalendarView().date)")
+                                    photoNum = photoNumArr[buttonSelected!]
+                                    eatAmount = CGFloat(eatAmountArr[buttonSelected!])
+                                    self.values = nutrientArr[buttonSelected!]
+                                    print("PHOTO NUM IS \(photoNum)")
                             }) {
                                 Text("\(self.buttons[button])")
                                     .frame(width: width/7, height: topHeight * 0.52, alignment: .center)
@@ -176,64 +197,90 @@ struct DailyView: View {
                             
                         }
                     }.frame(width: width, height: topHeight, alignment: .center)
-                    VStack(spacing: 0){
-                        VStack(spacing: graphWidth * 0.03){
-                            HStack(spacing: graphWidth * 0.1)
-                            {
-                                ZStack(){
-                                    ForEach(0..<self.values.count){ i in
-                                        PieSliceView(pieSliceData: self.slices[i])
-                                    }
-                                    .frame(width: graphWidth * 0.4, height: graphWidth * 0.4)
-                                }
-                                .foregroundColor(Color.white)
-                                VStack(spacing: height * 0.005) {
-                                    ForEach(0..<self.nutrient.count) {i in
-                                        HStack() {
-                                            RoundedRectangle(cornerRadius: 10)
-                                                .fill(DailyView.nutColor[i])
-                                                .frame(width: graphWidth * 0.07, height: graphWidth * 0.07, alignment: .leading)
-                                            Text(nutrient[i]).font(.callout)
-                                                .frame(alignment: .trailing)
-                                        }.frame(width: graphWidth * 0.3, alignment: .leading)
-                                    }
-                                }
-                            }
-                            VStack(spacing: bottomTHeight * 0.02){
-                                RoundedRectangle(cornerRadius: 10).fill(barChartBackgroundColor())
-                                    .frame(width: graphWidth * 0.8, height: bottomTHeight * 0.12)
-                                    .overlay()
+                    VStack(spacing: 10){
+                        RoundedRectangle(cornerRadius: 20).stroke(Color.accentColor.opacity(0.8), lineWidth: 2).frame(width: graphWidth, height: bottomTHeight * 0.9, alignment: .center)
+                            .overlay()
+                        {
+                            VStack(spacing: graphWidth * 0.035){
+                                HStack(spacing: graphWidth * 0.1)
                                 {
-                                    VStack(alignment: .leading)
+                                    ZStack(){
+                                        ForEach(0..<self.values.count, id: \.self){ i in
+                                            PieSliceView(pieSliceData: self.slices[i])
+                                        }
+                                        .frame(width: graphWidth * 0.35, height: graphWidth * 0.35)
+                                        .padding(bottomTHeight * 0.03)
+                                    }
+                                    
+                                    VStack(spacing: height * 0.005) {
+                                        ForEach(0..<self.nutrient.count, id: \.self) {i in
+                                            HStack() {
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .fill(DailyView.nutColor[i])
+                                                    .frame(width: graphWidth * 0.07, height: graphWidth * 0.07, alignment: .leading)
+                                                Text(nutrient[i]).font(.callout)
+                                                    .frame(alignment: .trailing)
+                                            }.frame(width: graphWidth * 0.3, alignment: .leading)
+                                        }
+                                    }
+                                }
+                                VStack(spacing: bottomTHeight * 0.03){
+                                    RoundedRectangle(cornerRadius: 10).fill(barChartBackgroundColor())
+                                        .frame(width: graphWidth * 0.8, height: bottomTHeight * 0.09)
+                                        .overlay()
                                     {
-                                        RoundedRectangle(cornerRadius: 10).fill(barChartColorChange())
-                                            .frame(width: barChartFullFill(w: graphWidth), height: bottomTHeight * 0.12)
-                                    }.frame(width: graphWidth * 0.8, height: bottomTHeight * 0.12, alignment: .leading)
+                                        VStack(alignment: .leading)
+                                        {
+                                            RoundedRectangle(cornerRadius: 10).fill(barChartColorChange())
+                                                .frame(width: barChartFullFill(w: graphWidth), height: bottomTHeight * 0.09)
+                                        }.frame(width: graphWidth * 0.8, height: bottomTHeight * 0.12, alignment: .leading)
+                                    }
+                                    HStack(spacing: width * 0.01) {
+                                        if buttonSelected != nil
+                                        {
+                                            Text("\((Int)(eatAmountArr[buttonSelected!]))")
+                                        }
+                                        else
+                                        {
+                                            Text("\((Int)(eatAmount))")
+                                        }
+                                        Text(" / ")
+                                        Text("\((Int)(resAmount))")
+                                        Text(" kcal")
+                                    }
                                 }
-                                HStack(spacing: width * 0.01) {
-                                    Text("\((Int)(eatAmount))")
-                                    Text(" / ")
-                                    Text("\((Int)(resAmount))")
-                                    Text(" kcal")
-                                }
-                            }
-                        }.frame(width: graphWidth, height: bottomTHeight, alignment: .center)
-                            .background(Color.gray)
+                            }.frame(width: graphWidth, height: bottomTHeight, alignment: .center)
+                            
+                        }.frame(alignment: .center)
                         VStack(spacing: 0){
-                            VStack(){
-                                
-                            Text("Photo Area")
+                            if(photoNum != 0)
+                            {
+                                ForEach(0..<matrixSquareNum(), id: \.self)
+                                {i in
+                                    HStack(spacing: 0){
+                                        ForEach(0..<matrixSquareNum(), id: \.self) { j in
+                                            if((j+1) * (i+1) < photoNum)
+                                            {
+                                                Image("temp").resizable().frame(width: graphWidth * 0.95 / CGFloat(matrixSquareNum()), height: bottomBHeight * 0.95 / CGFloat(matrixSquareNum()), alignment: .center)
+                                            }
+                                        }
+                                    }.frame(width: graphWidth * 0.95, height: bottomBHeight * 0.95 / CGFloat(matrixSquareNum()), alignment: .leading)
+                                    
+                                }.frame(width: graphWidth * 0.95 / CGFloat(matrixSquareNum()), height: bottomBHeight * 0.95 / CGFloat(matrixSquareNum()), alignment:.center)
                             }
-                                .frame(width: graphWidth * 0.9, height: bottomBHeight * 0.9, alignment: .center)
-                                    .background(Color.red)
-                                
+                            else
+                            {
+                                Button(action: {print("PRESSED!")}) {
+                                    Text("사진 추가").font(.largeTitle)
+                                        .foregroundColor(Color.black.opacity(0.8))
+                                }
+                            }
                         }.frame(width: graphWidth, height: bottomBHeight, alignment: .center)
-                            .background(Color.brown)
+                            .background(Color.accentColor.opacity(0.6))
                         
                     }.frame(width: width, height: bottomHeight, alignment: .center)
-//                        .background(Color.teal)
-                        
-                }
+                        .background(Color.accentColor.opacity(0.4))
+                }.background(Color.accentColor.opacity(0.2))
         }
     }
 }

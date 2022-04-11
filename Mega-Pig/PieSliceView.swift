@@ -36,11 +36,11 @@ struct PieSliceView: View {
                 
                 Text(pieSliceData.text)
                     .position(
-                        x: geometry.size.width * 0.5 * CGFloat(1.0 + 0.78 * cos(self.midRadians)),
-                        y: geometry.size.height * 0.4 * CGFloat(1.0 - 0.78 * sin(self.midRadians))
+                        x: geometry.size.width * 0.5 * CGFloat(1.0 + 0.65 * cos(self.midRadians)),
+                        y: geometry.size.height * 0.5 * CGFloat(1.0 - 0.65 * sin(self.midRadians))
                     )
                     .foregroundColor(Color.white)
-                    .font(.system(size: 14))
+                    .font(.system(size: 12))
             }
         }
         .aspectRatio(1, contentMode: .fit)
