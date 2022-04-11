@@ -10,14 +10,18 @@ import SwiftUI
 struct PieSliceView: View {
     var pieSliceData: PieSliceData
     
-    var midRadians: Double {
+    var midRadians: Double
+    {
         return Double.pi / 2.0 - (pieSliceData.startAngle + pieSliceData.endAngle).radians / 2.0
     }
     
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                Path { path in
+        GeometryReader
+        {geometry in
+            ZStack
+            {
+                Path
+                { path in
                     let w: CGFloat = min(geometry.size.width, geometry.size.height)
                     
                     let center = CGPoint(x: w * 0.5, y: w * 0.5)
@@ -33,7 +37,6 @@ struct PieSliceView: View {
                     
                 }
                 .fill(pieSliceData.color)
-                
                 Text(pieSliceData.text)
                     .position(
                         x: geometry.size.width * 0.5 * CGFloat(1.0 + 0.65 * cos(self.midRadians)),

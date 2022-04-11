@@ -51,7 +51,8 @@ struct CalendarView: View {
     @State private var comValue: [CGFloat] = [2300, 2205.5, 2, 10]
     
     var body: some View {
-        GeometryReader { geometry in
+        GeometryReader
+        { geometry in
             let width = geometry.size.width
             let height = geometry.size.height
             let componentWidth = width * 0.55
@@ -59,9 +60,12 @@ struct CalendarView: View {
             let kcalWidth = width * 0.2
             let topHeight = height * 0.5
             let bottomHeight = height * 0.5
-            NavigationView {
-                VStack(spacing: 0) {
-                    Section {
+            NavigationView
+            {
+                VStack(spacing: 0)
+                {
+                    Section
+                    {
                         DatePicker(
                             "Start Date",
                             selection: $date,
@@ -89,8 +93,7 @@ struct CalendarView: View {
                         {
                             navigationActive = true
                         }
-                        NavigationLink("", destination:
-                                        DailyView(
+                        NavigationLink("", destination: DailyView(
                                             ymd: Date().getYMDString(d: date),
                                             dayOfWeek: Date().dayNameOfWeek(d: date)!,
                                             dayNum: Date().dayOfMonth(d: date),
@@ -99,40 +102,44 @@ struct CalendarView: View {
                                             photoNum: 0,
                                             values: [1300, 500, 300],
                                             colors: DailyView.nutColor
-                                            
                                         ),
                                        isActive: $navigationActive)
                     }
                     .navigationBarHidden(true)
-                    VStack(spacing: 0){
+                    
+                    VStack(spacing: 0)
+                    {
                         Label("Summary", systemImage: /*@START_MENU_TOKEN@*/""/*@END_MENU_TOKEN@*/).font(.system(size: titleSize) ).frame(maxWidth: .infinity, alignment: .center).padding(.vertical, (bottomHeight * 0.02)).frame(width: width, height: bottomHeight * 0.2, alignment: .center)
-                        HStack {
+                        
+                        HStack
+                        {
                             Label(components[0], systemImage: "").font(.system(size: sTitleSize)).frame(maxWidth: componentWidth, alignment: .leading)
                             Label(String(format: "%.f", comValue[0]), systemImage: /*@START_MENU_TOKEN@*/""/*@END_MENU_TOKEN@*/).font(.system(size: word)).frame(maxWidth: valueWidth, alignment: .trailing)
                             Label(unit[0], systemImage: /*@START_MENU_TOKEN@*/""/*@END_MENU_TOKEN@*/).padding(.trailing).font(.system(size: word)).frame(maxWidth: kcalWidth, alignment: .trailing)
                         }.frame(width: width, height: bottomHeight * 0.2, alignment: .center)
-                        HStack {
+                        HStack
+                        {
                             Label(components[1], systemImage: "").font(.system(size: sTitleSize)).frame(maxWidth: componentWidth, alignment: .leading)
                             Label(String(format: "%.f", comValue[1]), systemImage: /*@START_MENU_TOKEN@*/""/*@END_MENU_TOKEN@*/).font(.system(size: word)).frame(maxWidth: valueWidth, alignment: .trailing)
                             Label(unit[0], systemImage: /*@START_MENU_TOKEN@*/""/*@END_MENU_TOKEN@*/).padding(.trailing).font(.system(size: word)).frame(maxWidth: kcalWidth, alignment: .trailing)
                         }.frame(width: width, height: bottomHeight * 0.2, alignment: .center)
-                        HStack {
+                        HStack
+                        {
                             Label(components[2], systemImage: "").font(.system(size: sTitleSize)).frame(maxWidth: componentWidth, alignment: .leading)
                             Label(String(format: "%.f", comValue[2]), systemImage: /*@START_MENU_TOKEN@*/""/*@END_MENU_TOKEN@*/).font(.system(size: word)).frame(maxWidth: valueWidth, alignment: .trailing)
                             Label(unit[1], systemImage: /*@START_MENU_TOKEN@*/""/*@END_MENU_TOKEN@*/).padding(.trailing).font(.system(size: word)).frame(maxWidth: kcalWidth, alignment: .trailing)
                         }.frame(width: width, height: bottomHeight * 0.2, alignment: .center)
-                        HStack {
+                        HStack
+                        {
                             Label(components[3], systemImage: "").font(.system(size: sTitleSize)).frame(maxWidth: componentWidth*0.58, alignment: .leading)
                             Label("빠네크림파스타/3500\(unit[0])", systemImage: /*@START_MENU_TOKEN@*/""/*@END_MENU_TOKEN@*/).padding(.trailing).font(.system(size: word)).frame(maxWidth: valueWidth*3, alignment: .trailing)
                         }.frame(width: width, height: bottomHeight * 0.2, alignment: .center)
                     }.background(Color.accentColor)
                         .frame(width: width, height: bottomHeight, alignment: .top)
-                    }
+                }
             }
         }
-        
     }
-
 }
 
 struct CalendarView_Previews: PreviewProvider {
