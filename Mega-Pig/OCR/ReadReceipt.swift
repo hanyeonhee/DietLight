@@ -22,6 +22,10 @@ func readReceipt(img : UIImage) async -> String?{
 	do {
 		let str = try await koreanTextRecognizer.process(vimg as MLKitCompatibleImage).text
 		
+		let text = str.split(separator: "\n")
+		
+		print(analyzeText(text))
+		
 		return str
 		
 	} catch {
@@ -30,3 +34,14 @@ func readReceipt(img : UIImage) async -> String?{
 	}
 }
 
+func analyzeText(_ str : Array<Substring>) -> Set<String>{
+	var answer : Set<String> = []
+	for line in str {
+		for buger in bugerKing{
+			if line.contains(buger.key){
+				answer.insert(buger.key)
+			}
+		}
+	}
+	return answer
+}
