@@ -13,6 +13,7 @@
 		F5600EB927FECAF60088B771 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5600EB827FECAF60088B771 /* Assets.xcassets */; };
 		F5600EBC27FECAF60088B771 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5600EBB27FECAF60088B771 /* Preview Assets.xcassets */; };
 		F5AD8B7C2805DFE800BD7E90 /* ReadReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AD8B7B2805DFE800BD7E90 /* ReadReceipt.swift */; };
+		F5AD8B7F2805E06800BD7E90 /* BuguerKing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AD8B7E2805E06800BD7E90 /* BuguerKing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		F5600EB827FECAF60088B771 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5600EBB27FECAF60088B771 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F5AD8B7B2805DFE800BD7E90 /* ReadReceipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadReceipt.swift; sourceTree = "<group>"; };
+		F5AD8B7E2805E06800BD7E90 /* BuguerKing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuguerKing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		F5600EB327FECAF60088B771 /* Mega-Pig */ = {
 			isa = PBXGroup;
 			children = (
+				F5AD8B7D2805E06800BD7E90 /* Info */,
 				F5AD8B7A2805DFE800BD7E90 /* OCR */,
 				F5600EB427FECAF60088B771 /* Mega_PigApp.swift */,
 				F5600EB627FECAF60088B771 /* ContentView.swift */,
@@ -100,6 +103,15 @@
 				F5AD8B7B2805DFE800BD7E90 /* ReadReceipt.swift */,
 			);
 			path = OCR;
+			sourceTree = "<group>";
+		};
+		F5AD8B7D2805E06800BD7E90 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				F5AD8B7E2805E06800BD7E90 /* BuguerKing.swift */,
+			);
+			name = Info;
+			path = "../../Test7/Mega-Pig/Mega-Pig/Info";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +248,7 @@
 			files = (
 				F5600EB727FECAF60088B771 /* ContentView.swift in Sources */,
 				F5AD8B7C2805DFE800BD7E90 /* ReadReceipt.swift in Sources */,
+				F5AD8B7F2805E06800BD7E90 /* BuguerKing.swift in Sources */,
 				F5600EB527FECAF60088B771 /* Mega_PigApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
