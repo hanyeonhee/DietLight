@@ -4,7 +4,7 @@
 //
 //  Created by 황정현 on 2022/04/08.
 //
-
+import Combine
 import SwiftUI
 
 extension Date {
@@ -30,6 +30,7 @@ extension Date {
     
     func dateChange(d: String) -> Date {
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ko_KR")
         dateFormatter.dateFormat = "YYYY-MM-dd"
         print("IN METHOD::: \(dateFormatter.date(from: d)!)")
         return dateFormatter.date(from: d)!
@@ -37,6 +38,8 @@ extension Date {
 }
 
 struct CalendarView: View {
+    static var dateCo = Date()
+    
     @State public var date = Date()
     @State var navigationActive = false
     @State var isViewDisplayed = false
@@ -70,28 +73,14 @@ struct CalendarView: View {
                             "Start Date",
                             selection: $date,
                             displayedComponents: [.date]
+                            
                         )
                         .datePickerStyle(.graphical)
                         .frame(width: width, height: topHeight, alignment: .center)
-                        .onDisappear()
-                        {
-                            if(isViewDisplayed == false)
-                            {
-                                isViewDisplayed = true
-                            }
-                            else
-                            {
-                                date = Date()
-                            }
-                        }
-                        .onChange(of: date, perform: {newDate in
-                            print("selected date: \(newDate)")
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05)
-                            {navigationActive = true}
-                        })
                         .onTapGesture(count: 2)
                         {
-                            navigationActive = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05)
+                            {navigationActive = true}
                         }
                         NavigationLink("", destination: DailyView(
                                             ymd: Date().getYMDString(d: date),
@@ -101,6 +90,7 @@ struct CalendarView: View {
                                             resAmount: 50,
                                             photoNum: 0,
                                             values: [1300, 500, 300],
+                                            date: $date,
                                             colors: DailyView.nutColor
                                         ),
                                        isActive: $navigationActive)
@@ -137,6 +127,17 @@ struct CalendarView: View {
                     }.background(Color.accentColor)
                         .frame(width: width, height: bottomHeight, alignment: .top)
                 }
+            }
+        }
+        .onChange(of: date, perform: {newDate in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05)
+            {navigationActive = true}
+        })
+        .onDisappear()
+        {
+            if(isViewDisplayed == false)
+            {
+                isViewDisplayed = true
             }
         }
     }

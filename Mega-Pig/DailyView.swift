@@ -36,6 +36,7 @@ struct DailyView: View {
     
     @State var buttons = [1, 2, 3, 4, 5, 6, 7]
     @State public var values: [Int]
+    @Binding var date: Date
     
     // Struct Need List
     @State var eatAmountArr = [10, 20, 30, 40, 50, 60, 70]
@@ -45,9 +46,14 @@ struct DailyView: View {
     let day = ["일", "월", "화", "수", "목", "금", "토"]
     let nutrient = ["탄수화물", "단백질", "지방"]
     static let nutColor = [
-        Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255, opacity: 1.0),
-        Color(red: 10 / 255, green: 132 / 255, blue: 255 / 255, opacity: 1.0),
-        Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255, opacity: 1.0)]
+        Color(red: 34 / 255, green: 66 / 255, blue: 48 / 255, opacity: 1.0),
+        Color(red: 74 / 255, green: 143 / 255, blue: 103 / 255, opacity: 1.0),
+        Color(red: 167 / 255, green: 204 / 255, blue: 183 / 255, opacity: 1.0)]
+    let barColor = [
+            Color(red: 194 / 255, green: 89 / 255, blue: 81 / 255, opacity: 1.0),
+            Color(red: 194 / 255, green: 177 / 255, blue: 91 / 255, opacity: 1.0),
+            Color(red: 81 / 255, green: 194 / 255, blue: 128 / 255, opacity: 1.0)]
+        
     
     public var colors: [Color]
     
@@ -68,6 +74,8 @@ struct DailyView: View {
     
     func selectedDateIs()  -> Int
     {
+        count = 0
+        print("##### \(dayOfWeek)")
         for date in day
         {
             if(dayOfWeek == "\(date)요일")
@@ -92,6 +100,7 @@ struct DailyView: View {
             {
                 buttons[i] = dayNum - n + i
             }
+            print("BUTTON NUM IS \(buttons[i])")
         }
     }
     
@@ -106,15 +115,15 @@ struct DailyView: View {
     {
         if (resAmount < eatAmount)
         {
-            return Color.red
+            return barColor[0]
         }
         else if (resAmount * 0.8 < eatAmount)
         {
-            return Color.yellow
+            return barColor[1]
         }
         else
         {
-            return Color.accentColor
+            return barColor[2]
         }
     }
     
@@ -128,24 +137,6 @@ struct DailyView: View {
         {
             return (w * 0.8) * CGFloat((Float)(eatAmount/resAmount))
         }
-    }
-    
-    func barChartBackgroundColor() -> Color
-    {
-        var color: Color = Color.white
-        if (resAmount < eatAmount)
-        {
-            color = Color.red.opacity(0.3)
-        }
-        else if (resAmount * 0.8 < eatAmount)
-        {
-            color = Color.yellow.opacity(0.3)
-        }
-        else
-        {
-            color = Color.accentColor.opacity(0.3)
-        }
-        return color
     }
     
     func matrixSquareNum() -> Int
@@ -195,9 +186,12 @@ struct DailyView: View {
                         {
                             button in Button(action:{
                                     self.buttonSelected = button
-                                    ymdChange()
-                                    CalendarView().date = Date().dateChange(d: ymd)
+                                    ymdChange()                                
+                                date = Date().dateChange(d: ymd)
+                                print("CHECK:D_YMD \(ymd)")
+                                print("CHECK: D_change \(CalendarView().date)")
                                     photoNum = photoNumArr[buttonSelected!]
+                                    dayOfWeek = day[buttonSelected!] + "요일"
                                     eatAmount = CGFloat(eatAmountArr[buttonSelected!])
                                     self.values = nutrientArr[buttonSelected!]
                                     print("PHOTO NUM IS \(photoNum)")
@@ -246,7 +240,7 @@ struct DailyView: View {
                             }
                             VStack(spacing: bottomTHeight * 0.03)
                             {
-                                RoundedRectangle(cornerRadius: 10).fill(barChartBackgroundColor())
+                                RoundedRectangle(cornerRadius: 10).fill(barChartColorChange().opacity(0.3))
                                     .frame(width: graphWidth * 0.8, height: bottomTHeight * 0.09)
                                     .overlay()
                                 {
@@ -302,12 +296,18 @@ struct DailyView: View {
                 }.frame(width: width, height: bottomHeight, alignment: .center)
                         .background(Color.accentColor.opacity(0.4))
             }.background(Color.accentColor.opacity(0.2))
+        }.onDisappear()
+        {
+            dayNum = buttons[buttonSelected!]
+//            CalendarView().date = Date().dateChange(d: ymd)
+//            print("CHECK: D_Disappear \(CalendarView().date)")
         }
     }
 }
 
 struct DailyView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        DailyView(values: [1300, 500, 300], colors: DailyView.nutColor)
+        DailyView(values: [1300, 500, 300], date: CalendarView().$date, colors: DailyView.nutColor)
     }
 }
