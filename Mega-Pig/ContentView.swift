@@ -7,10 +7,14 @@
 
 import SwiftUI
 
+
+
+
 struct ContentView: View {
+    @EnvironmentObject var viewModel: AppViewModel
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Button( action: {viewModel.signout()}, label:{ Text("sign out")})
+        
     }
 }
 
