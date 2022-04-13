@@ -19,7 +19,7 @@ struct TournamentResult: View {
                         .foregroundColor(Color.accentColor)
                     
                 }
-                VStack(alignment: .leading, spacing: 10){
+                VStack(alignment: .leading, spacing: 5){
                     Divider().opacity(0)
                     
                     HStack(spacing :40){
@@ -42,13 +42,13 @@ struct TournamentResult: View {
                     }
 
                 }
-                .padding(10)
+                .padding(5)
                 .background(Color.white)
                 .cornerRadius(10)
 
 
                     VStack{
-                        VStack(spacing:10) {
+                        VStack(spacing:5) {
                             TournamentWinningRate()
                             TournamentWinningRate()
                             TournamentWinningRate()

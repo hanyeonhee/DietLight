@@ -18,6 +18,7 @@
 		361C7ADB2803FA3B004CFB73 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361C7ADA2803FA3B004CFB73 /* CalendarView.swift */; };
 		361C7ADD2803FCED004CFB73 /* TournamentNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361C7ADC2803FCED004CFB73 /* TournamentNavigation.swift */; };
 		361C7AE128040C64004CFB73 /* TournamentTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361C7AE028040C64004CFB73 /* TournamentTimer.swift */; };
+		36DA16C3280676990066AB75 /* TournamentFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DA16C2280676990066AB75 /* TournamentFinishView.swift */; };
 		F5600EB527FECAF60088B771 /* Mega_PigApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5600EB427FECAF60088B771 /* Mega_PigApp.swift */; };
 		F5600EB727FECAF60088B771 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5600EB627FECAF60088B771 /* ContentView.swift */; };
 		F5600EB927FECAF60088B771 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5600EB827FECAF60088B771 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		361C7ADA2803FA3B004CFB73 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		361C7ADC2803FCED004CFB73 /* TournamentNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentNavigation.swift; sourceTree = "<group>"; };
 		361C7AE028040C64004CFB73 /* TournamentTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentTimer.swift; sourceTree = "<group>"; };
+		36DA16C2280676990066AB75 /* TournamentFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentFinishView.swift; sourceTree = "<group>"; };
 		F5600EB127FECAF60088B771 /* Mega-Pig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mega-Pig.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5600EB427FECAF60088B771 /* Mega_PigApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mega_PigApp.swift; sourceTree = "<group>"; };
 		F5600EB627FECAF60088B771 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				361C7ADA2803FA3B004CFB73 /* CalendarView.swift */,
 				361C7ACE2803F77D004CFB73 /* TournamentWinningRate.swift */,
 				361C7AD02803F7BD004CFB73 /* BarChart.swift */,
+				36DA16C2280676990066AB75 /* TournamentFinishView.swift */,
 				F5600EB827FECAF60088B771 /* Assets.xcassets */,
 				F5600EBA27FECAF60088B771 /* Preview Content */,
 			);
@@ -182,6 +185,7 @@
 				361C7AD72803F9F7004CFB73 /* Ranking.swift in Sources */,
 				361C7ADD2803FCED004CFB73 /* TournamentNavigation.swift in Sources */,
 				361C7AE128040C64004CFB73 /* TournamentTimer.swift in Sources */,
+				36DA16C3280676990066AB75 /* TournamentFinishView.swift in Sources */,
 				361C7ACF2803F77D004CFB73 /* TournamentWinningRate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
