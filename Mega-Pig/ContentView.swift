@@ -11,17 +11,21 @@ import SwiftUI
 
 
 struct ContentView: View {
+    
     @EnvironmentObject var viewModel: AppViewModel
+    @State public var selection = AppViewModel().selection
     var body: some View {
+        
         GeometryReader { geometry in
                     VStack(spacing: 0) {
-                        TabView {
+                        TabView(selection: $selection) {
                             CalendarView().frame(width: geometry.size.width, height: geometry.size.height * 0.9, alignment: .center)
                             .tabItem {
                                 Image(systemName: "calendar")
                                 Text("Calendar")
                             }.tag(1)
-                            TestView().frame(width: geometry.size.width, height: geometry.size.height * 0.9, alignment: .center)
+                            TournamentView().frame(width: geometry.size.width, height: geometry.size.height * 0.9, alignment: .center)
+                                .navigationBarHidden(true)
                             .tabItem {
                                 Image(systemName: "network")
                                 Text("WorldCup")
@@ -44,7 +48,6 @@ struct ContentView: View {
                         }
                     }.frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                 }
-        
     }
 }
 

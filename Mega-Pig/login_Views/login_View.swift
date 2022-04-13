@@ -14,7 +14,10 @@ class AppViewModel: ObservableObject{
     @Published var signedIn = false
     @Published var findpassword = false
     @Published var checkemail = false
+    @Published var checktour = false
+    @Published var count = 5
     
+    @State var selection = 1
     
     var isSignedIn :Bool{
         return auth.currentUser != nil
@@ -62,16 +65,16 @@ struct login_View: View {
     
     @EnvironmentObject var viewModel: AppViewModel
     var body: some View {
-        if viewModel.signedIn{
-            ContentView()
-        }
-        else{
-            NavigationView{
-                real_login_View()
-            }.onAppear{
-                viewModel.signedIn=viewModel.isSignedIn
+            if viewModel.signedIn{
+                ContentView()
+                    .navigationBarHidden(true)//로그인후 들어갈 뷰 넣기
             }
-        }
+            else{
+                NavigationView{real_login_View()}
+                    .onAppear{
+                        viewModel.signedIn=viewModel.isSignedIn
+                    }
+            }
     }
     
 }
@@ -84,7 +87,7 @@ struct real_login_View: View {
     
     var body: some View {
         VStack(spacing: 10) {
-            Image("gyo_pig")
+            Image("traffic_light 2")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             Text("Login")
