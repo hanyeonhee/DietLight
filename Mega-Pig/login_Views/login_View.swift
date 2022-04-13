@@ -66,19 +66,20 @@ struct login_View: View {
     @EnvironmentObject var viewModel: AppViewModel
     
     var body: some View {
-        NavigationView{
+        
             if viewModel.signedIn{
                 ContentView()
                     .navigationBarHidden(true)//로그인후 들어갈 뷰 넣기
             }
             else{
-                real_login_View()
+                NavigationView{real_login_View()}
+                    .onAppear{
+                        viewModel.signedIn=viewModel.isSignedIn
+                    }
             }
             
-        }
-        .onAppear{
-            viewModel.signedIn=viewModel.isSignedIn
-        }
+        
+        
     }
     
 }
@@ -91,7 +92,7 @@ struct real_login_View: View {
     
     var body: some View {
         VStack(spacing: 10) {
-            Image("gyo_pig")
+            Image("traffic_light 2")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             Text("Login")
