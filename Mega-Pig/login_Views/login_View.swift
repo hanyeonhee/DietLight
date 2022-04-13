@@ -14,7 +14,10 @@ class AppViewModel: ObservableObject{
     @Published var signedIn = false
     @Published var findpassword = false
     @Published var checkemail = false
+    @Published var checktour = false
+    @Published var count = 5
     
+    @State var selection = 1
     
     var isSignedIn :Bool{
         return auth.currentUser != nil

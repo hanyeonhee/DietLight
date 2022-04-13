@@ -8,7 +8,25 @@
 import SwiftUI
 
 struct TournamentView: View {
+    @EnvironmentObject var viewModel: AppViewModel
+    @State private var isSheetPresented = false
     
+    var body: some View {
+        if viewModel.checktour{
+            
+            TournamentNavigation().navigationBarHidden(true)
+        }
+        else{
+            real_TournamentView()
+        }
+    }
+
+
+
+}
+
+struct real_TournamentView: View {
+    @EnvironmentObject var viewModel: AppViewModel
     @State  var foodCard1 = "myfood01"
     @State  var foodCard2 = "myfood02"
     @State private var isSheetPresented = false
@@ -32,8 +50,13 @@ struct TournamentView: View {
 //                    .scaledToFit()
                 
                 Button(action : {
+                    if(viewModel.count==0){
+                        viewModel.checktour=true
+                        viewModel.selection=2
+                    }
+                    viewModel.count-=1
                     let food1Rand = Int.random(in: 1...8 )
-                    let food2Rand = Int.random(in: 6...16)
+                    let food2Rand = Int.random(in: 9...16)
                 
                     foodCard1 = "myfood0" + String(food1Rand)
                     foodCard2 = "myfood0" + String(food2Rand)
@@ -66,8 +89,10 @@ struct TournamentView: View {
 
 struct TournamentView_Previews: PreviewProvider {
     static var previews: some View {
-        TournamentView()
+        real_TournamentView()
     }
 }
 }
+
+
 

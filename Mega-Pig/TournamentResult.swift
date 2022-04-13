@@ -25,7 +25,6 @@ struct TournamentResult: View {
                     HStack(spacing :40){
                     Spacer().frame(height: 5)
                     
-
                     Text("우승 확율")
                         .fontWeight(.bold)
                         .font(.system(size: 25))

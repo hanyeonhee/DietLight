@@ -18,9 +18,7 @@ struct TournamentNavigation: View {
     var body: some View {
         ZStack{
 
-                    
                     NavigationView{
-                        
                         ScrollView{
                             ZStack{
                                 Image("foodtournament")

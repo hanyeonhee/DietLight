@@ -11,7 +11,7 @@ struct TournamentTimer: View {
 
     let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
     @State var timeRemaining: String = " "
-    let futureDate: Date = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
+    let futureDate: Date = Calendar.current.date(byAdding: .minute, value: 30, to: Date()) ?? Date()
     func updateTimeRemaining() {
         let remaining = Calendar.current.dateComponents([.hour, .minute, .second], from: Date(), to: futureDate)
         let hours = remaining.hour
