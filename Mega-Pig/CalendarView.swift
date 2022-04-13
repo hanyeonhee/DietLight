@@ -83,46 +83,46 @@ struct CalendarView: View {
                             {navigationActive = true}
                         }
                         NavigationLink("", destination: DailyView(
-                                            ymd: Date().getYMDString(d: date),
-                                            dayOfWeek: Date().dayNameOfWeek(d: date)!,
-                                            dayNum: Date().dayOfMonth(d: date),
-                                            eatAmount: 100,
-                                            resAmount: 50,
-                                            photoNum: 0,
-                                            values: [1300, 500, 300],
-                                            date: $date,
-                                            colors: DailyView.nutColor
-                                        ),
+                            ymd: Date().getYMDString(d: date),
+                            dayOfWeek: Date().dayNameOfWeek(d: date)!,
+                            dayNum: Date().dayOfMonth(d: date),
+                            eatAmount: 100,
+                            resAmount: 50,
+                            photoNum: 0,
+                            values: [1300, 500, 300],
+                            date: $date,
+                            colors: DailyView.nutColor
+                        ),
                                        isActive: $navigationActive)
                     }
                     .navigationBarHidden(true)
                     
                     VStack(spacing: 0)
                     {
-                        Label("Summary", systemImage: /*@START_MENU_TOKEN@*/""/*@END_MENU_TOKEN@*/).font(.system(size: titleSize) ).frame(maxWidth: .infinity, alignment: .center).padding(.vertical, (bottomHeight * 0.02)).frame(width: width, height: bottomHeight * 0.2, alignment: .center)
+                        Label("Summary", systemImage: "").font(.system(size: titleSize) ).frame(maxWidth: .infinity, alignment: .center).padding(.vertical, (bottomHeight * 0.02)).frame(width: width, height: bottomHeight * 0.2, alignment: .center)
                         
                         HStack
                         {
                             Label(components[0], systemImage: "").font(.system(size: sTitleSize)).frame(maxWidth: componentWidth, alignment: .leading)
-                            Label(String(format: "%.f", comValue[0]), systemImage: /*@START_MENU_TOKEN@*/""/*@END_MENU_TOKEN@*/).font(.system(size: word)).frame(maxWidth: valueWidth, alignment: .trailing)
-                            Label(unit[0], systemImage: /*@START_MENU_TOKEN@*/""/*@END_MENU_TOKEN@*/).padding(.trailing).font(.system(size: word)).frame(maxWidth: kcalWidth, alignment: .trailing)
+                            Label(String(format: "%.f", comValue[0]), systemImage: "").font(.system(size: word)).frame(maxWidth: valueWidth, alignment: .trailing)
+                            Label(unit[0], systemImage: "").padding(.trailing).font(.system(size: word)).frame(maxWidth: kcalWidth, alignment: .trailing)
                         }.frame(width: width, height: bottomHeight * 0.2, alignment: .center)
                         HStack
                         {
                             Label(components[1], systemImage: "").font(.system(size: sTitleSize)).frame(maxWidth: componentWidth, alignment: .leading)
-                            Label(String(format: "%.f", comValue[1]), systemImage: /*@START_MENU_TOKEN@*/""/*@END_MENU_TOKEN@*/).font(.system(size: word)).frame(maxWidth: valueWidth, alignment: .trailing)
-                            Label(unit[0], systemImage: /*@START_MENU_TOKEN@*/""/*@END_MENU_TOKEN@*/).padding(.trailing).font(.system(size: word)).frame(maxWidth: kcalWidth, alignment: .trailing)
+                            Label(String(format: "%.f", comValue[1]), systemImage: "").font(.system(size: word)).frame(maxWidth: valueWidth, alignment: .trailing)
+                            Label(unit[0], systemImage: "").padding(.trailing).font(.system(size: word)).frame(maxWidth: kcalWidth, alignment: .trailing)
                         }.frame(width: width, height: bottomHeight * 0.2, alignment: .center)
                         HStack
                         {
                             Label(components[2], systemImage: "").font(.system(size: sTitleSize)).frame(maxWidth: componentWidth, alignment: .leading)
-                            Label(String(format: "%.f", comValue[2]), systemImage: /*@START_MENU_TOKEN@*/""/*@END_MENU_TOKEN@*/).font(.system(size: word)).frame(maxWidth: valueWidth, alignment: .trailing)
-                            Label(unit[1], systemImage: /*@START_MENU_TOKEN@*/""/*@END_MENU_TOKEN@*/).padding(.trailing).font(.system(size: word)).frame(maxWidth: kcalWidth, alignment: .trailing)
+                            Label(String(format: "%.f", comValue[2]), systemImage: "").font(.system(size: word)).frame(maxWidth: valueWidth, alignment: .trailing)
+                            Label(unit[1], systemImage: "").padding(.trailing).font(.system(size: word)).frame(maxWidth: kcalWidth, alignment: .trailing)
                         }.frame(width: width, height: bottomHeight * 0.2, alignment: .center)
                         HStack
                         {
                             Label(components[3], systemImage: "").font(.system(size: sTitleSize)).frame(maxWidth: componentWidth*0.58, alignment: .leading)
-                            Label("빠네크림파스타/3500\(unit[0])", systemImage: /*@START_MENU_TOKEN@*/""/*@END_MENU_TOKEN@*/).padding(.trailing).font(.system(size: word)).frame(maxWidth: valueWidth*3, alignment: .trailing)
+                            Label("빠네크림파스타/3500\(unit[0])", systemImage: "").padding(.trailing).font(.system(size: word)).frame(maxWidth: valueWidth*3, alignment: .trailing)
                         }.frame(width: width, height: bottomHeight * 0.2, alignment: .center)
                     }.background(Color.accentColor)
                         .frame(width: width, height: bottomHeight, alignment: .top)
