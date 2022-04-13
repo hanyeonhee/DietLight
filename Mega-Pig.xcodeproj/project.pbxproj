@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		787231052804637500600438 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 787231042804637500600438 /* GoogleService-Info.plist */; };
+		78D506082803FC0500616988 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 78D506072803FC0500616988 /* FirebaseAuth */; };
+		78FF6E7B27FF0468000B044C /* login_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF6E7A27FF0468000B044C /* login_View.swift */; };
+		78FF6E7D27FF0CF3000B044C /* signup_email_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF6E7C27FF0CF3000B044C /* signup_email_View.swift */; };
+		78FF6E8027FF18D1000B044C /* find_Pw_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF6E7F27FF18D1000B044C /* find_Pw_View.swift */; };
 		F5600EB527FECAF60088B771 /* Mega_PigApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5600EB427FECAF60088B771 /* Mega_PigApp.swift */; };
 		F5600EB727FECAF60088B771 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5600EB627FECAF60088B771 /* ContentView.swift */; };
 		F5600EB927FECAF60088B771 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5600EB827FECAF60088B771 /* Assets.xcassets */; };
@@ -14,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		787231042804637500600438 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		78FF6E7A27FF0468000B044C /* login_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = login_View.swift; sourceTree = "<group>"; };
+		78FF6E7C27FF0CF3000B044C /* signup_email_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signup_email_View.swift; sourceTree = "<group>"; };
+		78FF6E7F27FF18D1000B044C /* find_Pw_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = find_Pw_View.swift; sourceTree = "<group>"; };
 		F5600EB127FECAF60088B771 /* Mega-Pig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mega-Pig.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5600EB427FECAF60088B771 /* Mega_PigApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mega_PigApp.swift; sourceTree = "<group>"; };
 		F5600EB627FECAF60088B771 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,12 +35,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78D506082803FC0500616988 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		78FF6E7E27FF18A2000B044C /* login_Views */ = {
+			isa = PBXGroup;
+			children = (
+				78FF6E7C27FF0CF3000B044C /* signup_email_View.swift */,
+				78FF6E7A27FF0468000B044C /* login_View.swift */,
+				78FF6E7F27FF18D1000B044C /* find_Pw_View.swift */,
+			);
+			path = login_Views;
+			sourceTree = "<group>";
+		};
 		F5600EA827FECAF60088B771 = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +71,8 @@
 		F5600EB327FECAF60088B771 /* Mega-Pig */ = {
 			isa = PBXGroup;
 			children = (
+				787231042804637500600438 /* GoogleService-Info.plist */,
+				78FF6E7E27FF18A2000B044C /* login_Views */,
 				F5600EB427FECAF60088B771 /* Mega_PigApp.swift */,
 				F5600EB627FECAF60088B771 /* ContentView.swift */,
 				F5600EB827FECAF60088B771 /* Assets.xcassets */,
@@ -83,6 +105,9 @@
 			dependencies = (
 			);
 			name = "Mega-Pig";
+			packageProductDependencies = (
+				78D506072803FC0500616988 /* FirebaseAuth */,
+			);
 			productName = "Mega-Pig";
 			productReference = F5600EB127FECAF60088B771 /* Mega-Pig.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +136,9 @@
 				Base,
 			);
 			mainGroup = F5600EA827FECAF60088B771;
+			packageReferences = (
+				78D506062803FC0500616988 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = F5600EB227FECAF60088B771 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +155,7 @@
 			files = (
 				F5600EBC27FECAF60088B771 /* Preview Assets.xcassets in Resources */,
 				F5600EB927FECAF60088B771 /* Assets.xcassets in Resources */,
+				787231052804637500600438 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +166,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78FF6E7B27FF0468000B044C /* login_View.swift in Sources */,
+				78FF6E7D27FF0CF3000B044C /* signup_email_View.swift in Sources */,
 				F5600EB727FECAF60088B771 /* ContentView.swift in Sources */,
 				F5600EB527FECAF60088B771 /* Mega_PigApp.swift in Sources */,
+				78FF6E8027FF18D1000B044C /* find_Pw_View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +371,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		78D506062803FC0500616988 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		78D506072803FC0500616988 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78D506062803FC0500616988 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F5600EA927FECAF60088B771 /* Project object */;
 }
