@@ -17,62 +17,35 @@ import SwiftUI
 struct TournamentNavigation: View {
     var body: some View {
         ZStack{
-            //            NavigationView{
-//                ScrollView{
-//                    NavigationLink("Hello, world?", destination: MyOtherScreen())
-//                    Text("Hello, World")
-//                }
-//                .navigationTitle("All INboxes")
-//            }
-            
-//                GeometryReader{ proxy in
-//                    let frame = proxy.frame(in: .global)
-//
-//                    Tournament()
-//                }
-//                GeometryReader { proxy in BlurView(style: .systemThinMaterialDark)}
-                
-//                    Text("토너먼트 오픈까지")
-//                        .fontWeight(.bold)
-//                        .font(.system(size: 25))
-//                        .foregroundColor(Color.accentColor)
-//
-//                    Text("Placeholder")
-//                        .fontWeight(.bold)
-//                        .font(.system(size: 25))
-//                        .foregroundColor(Color.accentColor)
+
                     
                     NavigationView{
                         
                         ScrollView{
-                            VStack{
-                                Image("myfood01")
+                            ZStack{
+                                Image("foodtournament")
                                     .resizable()
-                                    .frame(width: 300, height: 300)
-                                    .blur(radius: 5)
-                            
-                            Text("토너먼트 오픈까지")
-                                .fontWeight(.bold)
-                                .font(.system(size: 25))
-                                .foregroundColor(Color.accentColor)
-                            NavigationLink("지난 결과 확인", destination: OtherScreen())
-                            
+                                    .frame(width: 350, height: 600)
+                                    .blur(radius: 10)
+                                VStack(spacing : 20){
 
-//                                GeometryReader{ proxy in
-//                                    let frame = proxy.frame(in: .global)
-//
-//                                    Tournament()
-//                                }
-//                                GeometryReader { proxy in BlurView(style: .systemThinMaterialDark)}
                             
-                                
-                                Text("남은 시간")
-                                    .fontWeight(.bold)
-                                    .font(.system(size: 25))
-                                    .foregroundColor(Color.accentColor)
-                                TournamentTimer()
+                                    Text("토너먼트 오픈까지")
+                                        .fontWeight(.bold)
+                                        .font(.system(size: 25))
+                                        .foregroundColor(Color.accentColor)
+
+                                    Text("남은 시간")
+                                        .fontWeight(.bold)
+                                        .font(.system(size: 25))
+                                        .foregroundColor(Color.accentColor)
+                                    TournamentTimer()
+                                        NavigationLink("지난 결과 확인", destination: OtherScreen())
+                                                    .font(.system(size:25))
+                                                    .foregroundColor(Color.black)
 
                             }
+                        }
                             
                             
 

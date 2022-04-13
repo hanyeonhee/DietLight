@@ -10,7 +10,6 @@ import SwiftUI
 struct TournamentResult: View {
     var body: some View {
         ZStack {
-            TabView1()
         //GeometryReader
             VStack {
                 VStack {
