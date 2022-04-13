@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A33807F2806B74D00C0DDEA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A33807E2806B74D00C0DDEA /* GoogleService-Info.plist */; };
 		3AAFADEC27FFF17F004741C0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAFADEB27FFF17F004741C0 /* MainTabView.swift */; };
 		3AAFADF028002107004741C0 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAFADEF28002107004741C0 /* DailyView.swift */; };
 		3AAFADF228002A5D004741C0 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAFADF128002A5D004741C0 /* TestView.swift */; };
 		3ADFD6752800727900B482FE /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFD6742800727900B482FE /* CalendarView.swift */; };
 		3AFB62332803DB510051BEA7 /* PieSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFB62322803DB510051BEA7 /* PieSliceView.swift */; };
-		787231052804637500600438 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 787231042804637500600438 /* GoogleService-Info.plist */; };
 		78D506082803FC0500616988 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 78D506072803FC0500616988 /* FirebaseAuth */; };
 		78FF6E7B27FF0468000B044C /* login_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF6E7A27FF0468000B044C /* login_View.swift */; };
 		78FF6E7D27FF0CF3000B044C /* signup_email_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF6E7C27FF0CF3000B044C /* signup_email_View.swift */; };
@@ -24,12 +24,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A33807E2806B74D00C0DDEA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3AAFADEB27FFF17F004741C0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		3AAFADEF28002107004741C0 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
 		3AAFADF128002A5D004741C0 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		3ADFD6742800727900B482FE /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		3AFB62322803DB510051BEA7 /* PieSliceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSliceView.swift; sourceTree = "<group>"; };
-		787231042804637500600438 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		78FF6E7A27FF0468000B044C /* login_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = login_View.swift; sourceTree = "<group>"; };
 		78FF6E7C27FF0CF3000B044C /* signup_email_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signup_email_View.swift; sourceTree = "<group>"; };
 		78FF6E7F27FF18D1000B044C /* find_Pw_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = find_Pw_View.swift; sourceTree = "<group>"; };
@@ -81,11 +81,11 @@
 		F5600EB327FECAF60088B771 /* Mega-Pig */ = {
 			isa = PBXGroup;
 			children = (
+				3A33807E2806B74D00C0DDEA /* GoogleService-Info.plist */,
 				3AFB62322803DB510051BEA7 /* PieSliceView.swift */,
 				3AAFADF128002A5D004741C0 /* TestView.swift */,
 				3AAFADEF28002107004741C0 /* DailyView.swift */,
 				3AAFADEB27FFF17F004741C0 /* MainTabView.swift */,
-				787231042804637500600438 /* GoogleService-Info.plist */,
 				78FF6E7E27FF18A2000B044C /* login_Views */,
 				F5600EB427FECAF60088B771 /* Mega_PigApp.swift */,
 				F5600EB627FECAF60088B771 /* ContentView.swift */,
@@ -170,7 +170,7 @@
 			files = (
 				F5600EBC27FECAF60088B771 /* Preview Assets.xcassets in Resources */,
 				F5600EB927FECAF60088B771 /* Assets.xcassets in Resources */,
-				787231052804637500600438 /* GoogleService-Info.plist in Resources */,
+				3A33807F2806B74D00C0DDEA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,7 +319,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mega-Pig/Preview Content\"";
-				DEVELOPMENT_TEAM = UAM52RQFW9;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -332,7 +332,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jeonghyeon.Mega-Pig";
+				PRODUCT_BUNDLE_IDENTIFIER = "developer.Toby.Mega-Pig";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -348,7 +348,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mega-Pig/Preview Content\"";
-				DEVELOPMENT_TEAM = UAM52RQFW9;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -361,7 +361,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jeonghyeon.Mega-Pig";
+				PRODUCT_BUNDLE_IDENTIFIER = "developer.Toby.Mega-Pig";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
