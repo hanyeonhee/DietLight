@@ -22,26 +22,27 @@ struct TournamentResult: View {
                 VStack(alignment: .leading, spacing: 5){
                     Divider().opacity(0)
                     
-                    HStack(spacing :40){
-                    Spacer().frame(height: 5)
+                    HStack(spacing :65){
+                    Spacer().frame(width : 7)
                     
-                    Text("우승 확율")
-                        .fontWeight(.bold)
-                        .font(.system(size: 25))
-                        .foregroundColor(Color.black)
-                    
-                    Spacer().frame(height: 1)
-                    
-                    Text("승률")
+                        Text("우승 확률")
                             .fontWeight(.bold)
-                            .font(.system(size: 25))
-                        .foregroundColor(Color.black)
-                        Spacer().frame(height:5)
+                            .font(.system(size: 20))
+                            .foregroundColor(Color.black)
+                            .lineLimit(1)
+                        
+                        Spacer().frame(width: 1)
+                        
+                        Text("승률")
+                                .fontWeight(.bold)
+                                .font(.system(size: 20))
+                            .foregroundColor(Color.black)
+//                            Spacer().frame(width : 1)
 
                     }
 
                 }
-                .padding(5)
+                .padding()
                 .background(Color.white)
                 .cornerRadius(10)
 
@@ -49,14 +50,6 @@ struct TournamentResult: View {
                     VStack{
                         VStack(spacing:5) {
                             TournamentWinningRate()
-                            TournamentWinningRate()
-                            TournamentWinningRate()
-                            TournamentWinningRate()
-                            TournamentWinningRate()
-
-
-
-
                         }
      
                     }

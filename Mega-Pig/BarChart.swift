@@ -17,7 +17,7 @@ struct BarChart : View {
     var body: some View {
 
         HStack {
-            Text("Bar").padding (5)
+            Text("Rate").padding (5)
             Spacer()
             Text("\(String(format: "%02.f", arguments: [self.percent * 100]))%").padding(5)
         }
