@@ -65,7 +65,8 @@ struct login_View: View {
     var body: some View {
         NavigationView{
             if viewModel.signedIn{
-                ContentView()//로그인후 들어갈 뷰 넣기
+                ContentView()
+                    .navigationBarHidden(true)//로그인후 들어갈 뷰 넣기
             }
             else{
                 real_login_View()
