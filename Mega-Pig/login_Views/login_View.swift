@@ -61,20 +61,16 @@ class AppViewModel: ObservableObject{
 struct login_View: View {
     
     @EnvironmentObject var viewModel: AppViewModel
-    
     var body: some View {
-        NavigationView{
-            if viewModel.signedIn{
-                ContentView()
-                    .navigationBarHidden(true)//로그인후 들어갈 뷰 넣기
-            }
-            else{
-                real_login_View()
-            }
-            
+        if viewModel.signedIn{
+            ContentView()
         }
-        .onAppear{
-            viewModel.signedIn=viewModel.isSignedIn
+        else{
+            NavigationView{
+                real_login_View()
+            }.onAppear{
+                viewModel.signedIn=viewModel.isSignedIn
+            }
         }
     }
     

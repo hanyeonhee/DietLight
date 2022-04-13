@@ -167,7 +167,6 @@ struct DailyView: View {
                     .navigationTitle(ymd)
                     .navigationViewStyle(StackNavigationViewStyle())
                     .navigationBarTitleDisplayMode(.inline)
-                    .background(Color.blue)
                     .onAppear() {
                         buttonSelected = selectedDateIs()
                     }.frame(alignment: .center)
