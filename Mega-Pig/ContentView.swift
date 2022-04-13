@@ -36,7 +36,7 @@ struct ContentView: View {
                                 Image(systemName: "1.circle")
                                 Text("Ranking")
                             }.tag(4)
-                            TestView().frame(width: geometry.size.width, height: geometry.size.height * 0.9, alignment: .center)
+                            MyPageView().frame(width: geometry.size.width, height: geometry.size.height * 0.9, alignment: .center)
                             .tabItem {
                                 Image(systemName: "person")
                                 Text("My Page")
