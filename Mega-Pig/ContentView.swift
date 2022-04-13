@@ -21,7 +21,7 @@ struct ContentView: View {
                                 Image(systemName: "calendar")
                                 Text("Calendar")
                             }.tag(1)
-                            ContentView().frame(width: geometry.size.width, height: geometry.size.height * 0.9, alignment: .center)
+                            TestView().frame(width: geometry.size.width, height: geometry.size.height * 0.9, alignment: .center)
                             .tabItem {
                                 Image(systemName: "network")
                                 Text("WorldCup")
@@ -41,7 +41,7 @@ struct ContentView: View {
                                 Image(systemName: "person")
                                 Text("My Page")
                             }.tag(5)
-                        }.
+                        }
                     }.frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                 }
         
