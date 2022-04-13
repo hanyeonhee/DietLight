@@ -58,9 +58,9 @@ struct TournamentView: View {
             
             
         }
-//        .sheet(isPresented: $isSheetPresented) {
-//            TournamentFinishView()
-//        }
+        .sheet(isPresented: $isSheetPresented) {
+            TournamentFinishView()
+        }
     }
 
 
