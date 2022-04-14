@@ -87,13 +87,13 @@ struct real_login_View: View {
     
     var body: some View {
         VStack(spacing: 10) {
-            Image("traffic_light 2")
+            Image("trafficlight 2")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-            Text("Login")
+            Text("Diet Light")
                 .bold()
                 .font(.title)
-            Text("언제나 초록 돼지...").font(.subheadline)
+            Text("당신의 건강 신호등").font(.subheadline)
             TextField("Email",text: $username)
                 .padding()
                 .background(Color(.systemGray6))
