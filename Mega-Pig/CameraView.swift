@@ -45,8 +45,10 @@ struct CameraView: View {
 										.cancel()
 									])
 					}
-				
-			}.navigationTitle("Camera Demo")
+				NavigationLink(destination: EatenView(selection: $selection, image: $image)){
+					Text("이미지 분석하기")
+				}
+			}.navigationTitle("사진 분석기")
 		}.sheet(isPresented: $showImagePicker) {
 			ImagePicker(image: $image, isShown: self.$showImagePicker, sourceType: self.sourceType, selection: $selection)
 		}

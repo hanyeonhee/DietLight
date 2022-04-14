@@ -23,7 +23,8 @@ class ImagePickerCoordinator : NSObject, UINavigationControllerDelegate, UIImage
 		if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
 			image = uiImage
 			isShown = false
-			selection = 1
+			
+//			selection = 1
 		}
 	}
 	

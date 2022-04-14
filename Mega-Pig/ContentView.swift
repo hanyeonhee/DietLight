@@ -51,6 +51,12 @@ struct ContentView: View {
                                 Image(systemName: "person")
                                 Text("My Page")
                             }.tag(5)
+							
+//							EatenView().frame(width: geometry.size.width, height: geometry.size.height * 0.9, alignment: .center)
+//							.tabItem{
+//								Text("Test")
+//							}.tag(6)
+								
                         }
                     }.frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                 }
