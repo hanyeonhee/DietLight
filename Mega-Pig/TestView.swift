@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct TestView: View {
-    
+    @EnvironmentObject var viewModel: AppViewModel
+
     var body: some View {
-            Text("Hell World")
+            
+        Button( action: {viewModel.signout()}, label:{ Text("sign out")})
     }
 }
 

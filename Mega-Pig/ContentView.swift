@@ -35,7 +35,7 @@ struct ContentView: View {
                                 Image(systemName: "camera")
                                 Text("Camera")
                             }.tag(3)
-                            TestView().frame(width: geometry.size.width, height: geometry.size.height * 0.9, alignment: .center)
+                            Ranking().frame(width: geometry.size.width, height: geometry.size.height * 0.9, alignment: .center)
                             .tabItem {
                                 Image(systemName: "1.circle")
                                 Text("Ranking")
