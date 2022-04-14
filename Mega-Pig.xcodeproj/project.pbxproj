@@ -32,6 +32,8 @@
 		F5600EB727FECAF60088B771 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5600EB627FECAF60088B771 /* ContentView.swift */; };
 		F5600EB927FECAF60088B771 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5600EB827FECAF60088B771 /* Assets.xcassets */; };
 		F5600EBC27FECAF60088B771 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5600EBB27FECAF60088B771 /* Preview Assets.xcassets */; };
+		F5E988572807F3A900B0402A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E988562807F3A900B0402A /* ImagePicker.swift */; };
+		F5E988592807FBF100B0402A /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E988582807FBF100B0402A /* CameraView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		F5600EB627FECAF60088B771 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F5600EB827FECAF60088B771 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5600EBB27FECAF60088B771 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F5E988562807F3A900B0402A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		F5E988582807FBF100B0402A /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,8 @@
 				3A98D0332806F72100B153D6 /* EditView.swift */,
 				3A98D0352806F72C00B153D6 /* TermsOfUseView.swift */,
 				787231082807377500600438 /* Ranking.swift */,
+				F5E988562807F3A900B0402A /* ImagePicker.swift */,
+				F5E988582807FBF100B0402A /* CameraView.swift */,
 			);
 			path = "Mega-Pig";
 			sourceTree = "<group>";
@@ -227,7 +233,9 @@
 				361C7AD12803F7BD004CFB73 /* BarChart.swift in Sources */,
 				361C7ADD2803FCED004CFB73 /* TournamentNavigation.swift in Sources */,
 				361C7AE128040C64004CFB73 /* TournamentTimer.swift in Sources */,
+				F5E988572807F3A900B0402A /* ImagePicker.swift in Sources */,
 				36DA16C3280676990066AB75 /* TournamentFinishView.swift in Sources */,
+				F5E988592807FBF100B0402A /* CameraView.swift in Sources */,
 				361C7ACF2803F77D004CFB73 /* TournamentWinningRate.swift in Sources */,
 				3AFB62332803DB510051BEA7 /* PieSliceView.swift in Sources */,
 				3A98D0342806F72100B153D6 /* EditView.swift in Sources */,
@@ -364,9 +372,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mega-Pig/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = P2UJWPTGRX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -393,9 +405,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mega-Pig/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = P2UJWPTGRX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
