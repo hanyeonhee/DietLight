@@ -59,7 +59,7 @@ struct MyPageView: View {
                                VStack {
                                    NavigationLink(destination: TermsOfUseView())
                                    {
-                                       Text("앱 사용약관").frame(minWidth: 0, maxWidth: .infinity)
+                                       Text("서비스 사용약관").frame(minWidth: 0, maxWidth: .infinity)
                                            .font(.system(size: 18))
                                            .padding(buttonArea * 0.08)
                                            .foregroundColor(.white)
