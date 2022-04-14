@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MyPageView: View {
-    @State var userName = "치킨먹을래"
+    @State var userName = "치느님"
     
     @EnvironmentObject var viewModel: AppViewModel
     
