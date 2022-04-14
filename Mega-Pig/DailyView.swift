@@ -26,7 +26,6 @@ struct DailyView: View {
     @State var dayOfWeek:String = "월요일"
     @State var dayNum:Int = 0
     @State var count: Int = 0
-    
     @State var eatAmount:CGFloat = 0
     @State var resAmount:CGFloat = 0
 
@@ -39,9 +38,10 @@ struct DailyView: View {
     @Binding var date: Date
     
     // Struct Need List
-    @State var eatAmountArr = [10, 20, 30, 40, 50, 60, 70]
+    @State var eatAmountArr = [2500, 1970, 712, 2280, 2400, 1670, 2100]
     @State var nutrientArr = [[100,200,50], [300,550,440], [101, 202, 333], [121, 573, 394], [121, 573, 34], [121, 113, 255], [123, 456, 789]]
-    @State var photoNumArr = [0, 3, 5, 9, 25, 14, 2]
+    @State var photoNumArr = [3, 1, 2, 3, 12, 14, 2]
+    @State var photo = ["myfood001", "myfood01", "myfood02", "myfood03", "myfood04", "myfood05", "myfood06", "myfood07", "myfood08", "myfood09", "myfood010", "myfood011","myfood012", "myfood013", "myfood014", "myfood015", "myfood016"]
     
     let day = ["일", "월", "화", "수", "목", "금", "토"]
     let nutrient = ["탄수화물", "단백질", "지방"]
@@ -151,6 +151,9 @@ struct DailyView: View {
         return 1
     }
     
+    func photoIndexIs(i: Int, j: Int, mS: Int) -> Int{
+        return (i-1) * mS + j
+    }
     var body: some View {
         GeometryReader
         {geometry in
@@ -270,13 +273,13 @@ struct DailyView: View {
                     {
                         if(photoNum != 0)
                         {
-                            ForEach(0..<matrixSquareNum(), id: \.self)
+                            ForEach(1...matrixSquareNum(), id: \.self)
                             {i in
                                 HStack(spacing: 0){
-                                    ForEach(0..<matrixSquareNum(), id: \.self) { j in
-                                        if((j+1) * (i+1) < photoNum)
+                                    ForEach(1...matrixSquareNum(), id: \.self) { j in
+                                        if(photoIndexIs(i: i, j: j, mS: matrixSquareNum()) <= photoNum)
                                         {
-                                            Image("temp").resizable().frame(width: graphWidth * 0.95 / CGFloat(matrixSquareNum()), height: bottomBHeight * 0.95 / CGFloat(matrixSquareNum()), alignment: .center)
+                                            Image(photo[photoIndexIs(i: i, j: j, mS: matrixSquareNum())]).resizable().frame(width: graphWidth * 0.95 / CGFloat(matrixSquareNum()), height: bottomBHeight * 0.95 / CGFloat(matrixSquareNum()), alignment: .center)
                                         }
                                     }
                                 }.frame(width: graphWidth * 0.95, height: bottomBHeight * 0.95 / CGFloat(matrixSquareNum()), alignment: .leading)
