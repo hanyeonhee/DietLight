@@ -13,9 +13,11 @@ struct CameraView: View {
 	@State private var showImagePicker : Bool = false
 	@State private var sourceType : UIImagePickerController.SourceType = .camera
 	@Binding private var image : UIImage?
+	@Binding private var selection : Int
 	
-	init(image : Binding<UIImage?>){
+	init(image : Binding<UIImage?>, selection : Binding<Int>){
 		_image = image
+		_selection = selection
 	}
 	
 	var body: some View {
@@ -39,7 +41,6 @@ struct CameraView: View {
 										.default(Text("Camera")) {
 											self.showImagePicker = true
 											self.sourceType = .camera
-											print("SECOND")
 										},
 										.cancel()
 									])
@@ -47,7 +48,7 @@ struct CameraView: View {
 				
 			}.navigationTitle("Camera Demo")
 		}.sheet(isPresented: $showImagePicker) {
-			ImagePicker(image: $image, isShown: self.$showImagePicker, sourceType: self.sourceType)
+			ImagePicker(image: $image, isShown: self.$showImagePicker, sourceType: self.sourceType, selection: $selection)
 		}
 	}
 }

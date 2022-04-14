@@ -11,17 +11,19 @@ import SwiftUI
 class ImagePickerCoordinator : NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 	@Binding var image : UIImage?
 	@Binding var isShown : Bool
+	@Binding var selection : Int
 	
-	init(image : Binding<UIImage?>, isShown : Binding<Bool>){
+	init(image : Binding<UIImage?>, isShown : Binding<Bool>, selection : Binding<Int>){
 		_image = image
 		_isShown = isShown
+		_selection = selection
 	}
 	
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 		if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
 			image = uiImage
 			isShown = false
-			print("First")
+			selection = 1
 		}
 	}
 	
@@ -35,12 +37,13 @@ struct ImagePicker : UIViewControllerRepresentable {
 	@Binding var image : UIImage?
 	@Binding var isShown : Bool
 	var sourceType : UIImagePickerController.SourceType = .camera
+	@Binding var selection : Int
 	
 	func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {
 	}
 	
 	func makeCoordinator() -> ImagePicker.Coordinator {
-		return ImagePickerCoordinator(image: $image, isShown : $isShown)
+		return ImagePickerCoordinator(image: $image, isShown : $isShown, selection: $selection)
 	}
 	
 	func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {

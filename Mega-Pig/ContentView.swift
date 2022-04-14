@@ -34,7 +34,7 @@ struct ContentView: View {
                                 Image(systemName: "network")
                                 Text("WorldCup")
                             }.tag(2)
-							CameraView(image: $image).frame(width: geometry.size.width, height: geometry.size.height * 0.9, alignment: .center)
+							CameraView(image: $image, selection: $selection).frame(width: geometry.size.width, height: geometry.size.height * 0.9, alignment: .center)
                             .tabItem {
 								Image(systemName: "camera")
 								Text("Camera")

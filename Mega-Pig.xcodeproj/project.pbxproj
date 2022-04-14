@@ -34,6 +34,7 @@
 		F5600EBC27FECAF60088B771 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5600EBB27FECAF60088B771 /* Preview Assets.xcassets */; };
 		F5E988572807F3A900B0402A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E988562807F3A900B0402A /* ImagePicker.swift */; };
 		F5E988592807FBF100B0402A /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E988582807FBF100B0402A /* CameraView.swift */; };
+		F5E9885B280801A700B0402A /* EatenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E9885A280801A700B0402A /* EatenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		F5600EBB27FECAF60088B771 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F5E988562807F3A900B0402A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		F5E988582807FBF100B0402A /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		F5E9885A280801A700B0402A /* EatenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				787231082807377500600438 /* Ranking.swift */,
 				F5E988562807F3A900B0402A /* ImagePicker.swift */,
 				F5E988582807FBF100B0402A /* CameraView.swift */,
+				F5E9885A280801A700B0402A /* EatenView.swift */,
 			);
 			path = "Mega-Pig";
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				3A98D0362806F72C00B153D6 /* TermsOfUseView.swift in Sources */,
 				3ADFD6752800727900B482FE /* CalendarView.swift in Sources */,
 				78FF6E7B27FF0468000B044C /* login_View.swift in Sources */,
+				F5E9885B280801A700B0402A /* EatenView.swift in Sources */,
 				787231092807377500600438 /* Ranking.swift in Sources */,
 				78FF6E7D27FF0CF3000B044C /* signup_email_View.swift in Sources */,
 				F5600EB727FECAF60088B771 /* ContentView.swift in Sources */,
