@@ -1,6 +1,6 @@
 # <div align = "center"> 🚥 Diet Light </div>
 
-<div align = "center"><img src="https://user-images.githubusercontent.com/96641477/163712314-4f4ab0b7-cf59-4642-9be6-74f7fac331a1.png" alt="drawing" width="300"/></div>
+![OnePage](https://user-images.githubusercontent.com/96641477/163715287-c99eb024-7ba9-4806-ac9d-1928b842b4f8.jpeg)
 
 ### <div align = "center">안녕하세요, **Team KYO**입니다</div>
 |Dodo(Dohan Kim)|San(Sungsan Joh)|Toby(Inho Choi)|Jessica(Yeonhee Han)|EllyJ(Jeonghyeon Hwang)|
