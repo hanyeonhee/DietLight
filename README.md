@@ -1,7 +1,7 @@
 # <div align = "center"> 🚥 Diet Light </div>
 
 ![OnePage](https://user-images.githubusercontent.com/96641477/163715287-c99eb024-7ba9-4806-ac9d-1928b842b4f8.jpeg)
-# <div align = "center"> ![team9](https://user-images.githubusercontent.com/33242880/164224735-81bdceef-50ac-4422-b43e-4b00614c559f.gif)</div>
+# <div align = "center"><iframe width="560" height="315" src="https://www.youtube.com/embed/R3zZoLButeI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
 
 ### <div align = "center">안녕하세요, **Team KYO**입니다</div>
